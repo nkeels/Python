@@ -7,7 +7,7 @@
 #                                           -Nicholas Keels 2017#
 #***************************************************************#
 
-mport socket
+port socket
 import contact_lib
 
 
@@ -21,10 +21,10 @@ for address in ip:
     if result != 0:
         err.append(address)
 
-if err != None:
-    print(err)
+if len(err) == 0:
+    quit()
 else:
-    print(err)
+    contact_lib.email('There is an error with the {} ip address(es)! Please check on the issue as soon as possible!!!!!'.format(err))
 
 
 
