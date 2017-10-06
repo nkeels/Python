@@ -15,9 +15,8 @@ def Email(content):
     mail = smtplib.SMTP('smtp.gmail.com',587)
     mail.ehlo()
     mail.starttls()
-    mail.login('byuidahoradioingest@gmail.com','W1deOrb!t')
-    mail.sendmail('byuidahoradioingest@gmail.com', 'nikeels92@gmail.com', content)
-    mail.sendmail('byuidahoradioingest@gmail.com', 'eldermcgurk@gmail.com', content)
+    mail.login('emailaddress@fqdm.com','password')
+    mail.sendmail('emailaddress@fqdm.com', 'recievingemail@whatever.com', content)
     mail.close 
 
 ip = ['10.25.128.225', '10.25.128.223', '10.25.128.224', '10.25.128.241']
@@ -28,8 +27,7 @@ for address in ip:
     result = sock.connect_ex((address, 9999))
     if result != 0:
         err.append(address)
-
-
+        
 if err != None:
     Email("There is an error with the {} address(es)! Please check as soon as possible!!".format(err))
 else:
