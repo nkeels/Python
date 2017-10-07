@@ -7,7 +7,7 @@
 #                                           -Nicholas Keels 2017#
 #***************************************************************#
 
-port socket
+import socket
 import contact_lib
 
 
