@@ -7,18 +7,26 @@
 import smtplib
 import socket
 
-def Email(content):
+def email(content):
     content
     mail = smtplib.SMTP('smtp.gmail.com',587) # Parameterize these as well
     mail.ehlo()
     mail.starttls()
-    mail.login('byuidahoradioingest@gmail.com','W1deOrb!t') # Hardcoded pass....wut
-    mail.sendmail('byuidahoradioingest@gmail.com', 'nikeels92@gmail.com', content)
-    mail.sendmail('byuidahoradioingest@gmail.com', 'eldermcgurk@gmail.com', content)
+    mail.login('<email>','<password>') 
+    mail.sendmail('<from email>', '<to email>', content)
     mail.close 
+    
+#adjusted from pythonsms.py alexle
+
+def text(message):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login('<email>','<password>') 
+    server.sendmail('<from email>', '<to email>', message)
+    
 # In a future version these will be parametarized for better command line functionality
 # they will also be able to be read from a file.
-ip = ['10.25.128.225', '10.25.128.223', '10.25.128.224', '10.25.128.241']
+ip = [<list of ip's>]
 
 for address in ip:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
