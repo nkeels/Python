@@ -4,8 +4,9 @@
 #                                           -nkeels               #
 #*****************************************************************#
 
-import smtplib
 import socket
+import contact_lib
+
 
 def email(content):
     content
@@ -34,7 +35,10 @@ for address in ip:
     if result != 0: 
         Email('There is an issue with the {} address'.format(address))
 
-
+if len(err) == 0:
+    quit()
+else:
+    contact_lib.email('There is an error with the {} ip address(es)! Please check on the issue as soon as possible!!!!!'.format(err))
 
 
 
